@@ -23,18 +23,25 @@ app.get("/",(req,res)=>{
 })
 
 // creating a listing
-app.get("/testListing",async(req,res)=>{
-    let sampleListing = new Listing({
-        title:"My new villa",
-        description:"By the beach",
-        price:1200,
-        location:"calungate,Goa",
-        country:"India"
-    });
-    await sampleListing.save();
-    console.log("sample was saved");
-    res.send("Sample listing created");
+
+// app.get("/testListing",async(req,res)=>{
+//     let sampleListing = new Listing({
+//         title:"My new villa",
+//         description:"By the beach",
+//         price:1200,
+//         location:"calungate,Goa",
+//         country:"India"
+//     });
+//     await sampleListing.save();
+//     console.log("sample was saved");
+//     res.send("Sample listing created");
+// })
+
+app.get("/listings",async (req,res) =>{
+    const allListings = await Listings.find({});
 })
+
+
 
 
 
